@@ -10,5 +10,4 @@ public enum Code {
     C4,
     C5;
 
-
 }

@@ -7,12 +7,14 @@ public class DrawerTest {
 
     Drawer drawer;
     Crisp crisp;
+    Crisp crisp2;
     Drink cola;
 
     @Before
     public void setUp(){
         drawer = new Drawer(Code.A1, 1.00);
         crisp = new Crisp("Mexican Chilli", "McCoys");
+        crisp2 = new Crisp("Mexican Chilli", "McCoys");
         cola = new Drink("Cola", "Coca Cola");
     }
 
@@ -24,10 +26,11 @@ public class DrawerTest {
     }
 
     @Test
-    public void canReturnProductToDrawer(){
+    public void canRemoveProductFromDrawer(){
         drawer.add(crisp);
         drawer.removeProduct();
         assertEquals(0, drawer.getProductCount());
 
     }
+
 }

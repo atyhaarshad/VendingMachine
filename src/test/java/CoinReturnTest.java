@@ -23,6 +23,6 @@ public class CoinReturnTest {
         coinReturn.addCoin(fiftyP);
         coinReturn.addCoin(twentyP);
         coinReturn.addCoin(pound);
-        assertEquals(1.70, coinReturn.getTotalAmount(coinReturn));
+        assertEquals(1.70, coinReturn.getTotalAmount());
     }
 }

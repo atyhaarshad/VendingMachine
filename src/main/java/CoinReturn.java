@@ -8,17 +8,14 @@ public class CoinReturn {
         this.coins = new ArrayList<Coin>();
     }
 
-    public ArrayList<Coin> getCoins() {
-        return coins;
-    }
-
     public void addCoin(Coin coin) {
         this.coins.add(coin);
     }
 
-    public double getTotalAmount(CoinReturn coinReturn) {
+    public double getTotalAmount() {
+
         double coinValue = 0;
-        for (Coin coin : coinReturn.coins) {
+        for (Coin coin : this.coins) {
             coinValue = coin.getCoinTypeValue() + coinValue;
         }
         return coinValue;

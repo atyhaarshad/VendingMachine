@@ -7,12 +7,4 @@ public abstract class Product {
         this.name = name;
         this.brand = brand;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
 }

@@ -6,11 +6,8 @@ public class Coin {
         this.coinType = coinType;
     }
 
-    public CoinType getCoinType() {
-        return coinType;
-    }
-
     public double getCoinTypeValue(){
         return coinType.getValue();
     }
+
 }

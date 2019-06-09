@@ -17,11 +17,7 @@ public class Drawer {
     }
 
     public double getPrice() {
-        return price;
-    }
-
-    public ArrayList<Product> getProducts() {
-        return products;
+        return this.price;
     }
 
 
@@ -33,7 +29,9 @@ public class Drawer {
         return this.products.size();
     }
 
-    public void returnProduct(Product product) {
-        this.products.remove(product);
+    public Product removeProduct() {
+        return this.products.remove(0);
     }
+
+
 }

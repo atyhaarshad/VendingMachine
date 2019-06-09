@@ -26,7 +26,7 @@ public class DrawerTest {
     @Test
     public void canReturnProductToDrawer(){
         drawer.add(crisp);
-        drawer.returnProduct(crisp);
+        drawer.removeProduct();
         assertEquals(0, drawer.getProductCount());
 
     }

@@ -8,10 +8,7 @@ public enum Code {
     B3,
     C3,
     C4,
-    C5,
-    ;
+    C5;
 
-    Code() {
 
-    }
 }

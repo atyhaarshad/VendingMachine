@@ -19,6 +19,7 @@ public class VendingMachineTest {
     Coin oneP;
     Coin twoP;
     CoinReturn coinReturn;
+    Drink drink1;
 
 
     @Before
@@ -32,6 +33,7 @@ public class VendingMachineTest {
         oneP = new Coin(CoinType.ONE);
         twoP = new Coin(CoinType.TWO);
         coinReturn = new CoinReturn();
+        drink1 = new Drink("cola", "coca cola");
 
     }
 
@@ -51,33 +53,55 @@ public class VendingMachineTest {
         assertFalse(vendingMachine.validCoin(twoP));
     }
 
-    @Test
-    public void canBuyProduct(){
+//    @Test
+//    public void canBuyProduct(){
+//
+//        Drawer drawer = new Drawer(Code.A1, 1.00);
+//        drawer.add(new Drink("cola", "coca cola"));
+//        List<Drawer> drawers = singletonList(drawer);
+//        List<Coin> coins = singletonList(new Coin(CoinType.POUND));
+//        this.vendingMachine = new VendingMachine(drawers, coins, new CoinReturn(), 1.00);
+//
+//        BuyResult result = this.vendingMachine.buy(Code.A1);
+//
+//        assertTrue(result.isSuccessful());
+//        assertNotNull(result.getProduct());
+//    }
+//
+//    @Test
+//    public void canNotBuyProduct_notEnoughMoney(){
+//
+//        Drawer drawer = new Drawer(Code.A1, 1.00);
+//        drawer.add(new Drink("cola", "coca cola"));
+//        List<Drawer> drawers = singletonList(drawer);
+//        List<Coin> coins = singletonList(new Coin(CoinType.FIFTY));
+//        this.vendingMachine = new VendingMachine(drawers, coins, new CoinReturn(), 0.5);
+//
+//        BuyResult result = this.vendingMachine.buy(Code.A1);
+//
+//        assertFalse(result.isSuccessful());
+//        assertNull(result.getProduct());
+//    }
 
+    @Test
+    public void canBuyProductFromVendingMachine(){
         Drawer drawer = new Drawer(Code.A1, 1.00);
-        drawer.add(new Drink("cola", "coca cola"));
+        drawer.add(drink1);
         List<Drawer> drawers = singletonList(drawer);
         List<Coin> coins = singletonList(new Coin(CoinType.POUND));
         this.vendingMachine = new VendingMachine(drawers, coins, new CoinReturn(), 1.00);
 
-        BuyResult result = this.vendingMachine.buy(Code.A1);
-
-        assertTrue(result.isSuccessful());
-        assertNotNull(result.getProduct());
+        assertEquals(drink1, this.vendingMachine.buyProduct(Code.A1));
     }
 
     @Test
-    public void canNotBuyProduct_notEnoughMoney(){
-
+    public void canNotBuyProductFromVendingMachine_notEnoughMoney(){
         Drawer drawer = new Drawer(Code.A1, 1.00);
-        drawer.add(new Drink("cola", "coca cola"));
+        drawer.add(drink1);
         List<Drawer> drawers = singletonList(drawer);
         List<Coin> coins = singletonList(new Coin(CoinType.FIFTY));
-        this.vendingMachine = new VendingMachine(drawers, coins, new CoinReturn(), 0.5);
+        this.vendingMachine = new VendingMachine(drawers, coins, new CoinReturn(), 0.05);
 
-        BuyResult result = this.vendingMachine.buy(Code.A1);
-
-        assertFalse(result.isSuccessful());
-        assertNull(result.getProduct());
+        assertNull(this.vendingMachine.buyProduct(Code.A1));
     }
 }

@@ -45,26 +45,43 @@ public class VendingMachine {
         return coinsEntered.size();
     }
 
-    public BuyResult buy(Code code){
+//    public BuyResult buy(Code code){
+//
+//        for (Drawer drawer : drawers) {
+//
+//            if (drawer.getCode().equals(code)) {
+//
+//                if (this.credit >= drawer.getPrice()) {
+//
+//                    return new BuyResult(vend(drawer), true, new ArrayList<Coin>());
+//                } else {
+//
+//                    for (Coin coin: coinsEntered) {
+//
+//                        this.coinReturn.addCoin(coin);
+//                    }
+//                }
+//            }
+//        }
+//
+//        return new BuyResult(null, false, coinsEntered);
+//    }
 
-        for (Drawer drawer : drawers) {
+    public Product buyProduct(Code code){
 
-            if (drawer.getCode().equals(code)) {
-
-                if (this.credit >= drawer.getPrice()) {
-
-                    return new BuyResult(vend(drawer), true, new ArrayList<Coin>());
+        for (Drawer drawer : drawers){
+            if ( drawer.getCode().equals(code)){
+                if (this.credit >= drawer.getPrice()){
+                    return drawer.returnProduct();
                 } else {
-
-                    for (Coin coin: coinsEntered) {
-
+                    for (Coin coin: coinsEntered){
                         this.coinReturn.addCoin(coin);
                     }
                 }
             }
         }
 
-        return new BuyResult(null, false, coinsEntered);
+        return null;
     }
 
     public Product vend(Drawer drawer) {

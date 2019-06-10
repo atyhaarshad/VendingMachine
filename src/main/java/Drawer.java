@@ -33,6 +33,10 @@ public class Drawer {
         return this.products.remove(0);
     }
 
+    public Product returnProduct(){
+        return this.products.get(0);
+    }
+
 
 
 }
